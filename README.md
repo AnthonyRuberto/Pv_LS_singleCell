@@ -35,7 +35,8 @@ manuscript for the parasite side.
 
 ## Outputs
 
-In the event you do not want to perform the analysis, the .rds files (outputs) from each step can be downloaded from Zenodo: 10.5281/zenodo.6463338
+In the event you do not want to perform the analysis, the .rds files (outputs) from each step can be downloaded from Zenodo.
+DOI: [10.5281/zenodo.6463338]
 
 ## Support
 
