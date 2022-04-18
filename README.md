@@ -1,5 +1,5 @@
 # Workflow for Single-cell RNA profiling of *Plasmodium vivax*-infected hepatocytes reveals parasite- and host- specific transcriptomic signatures and therapeutic targets
-#### Anthony A. Ruberto1, Steven P. Maher1, Amélie Vantaux, Chester J Joyner1,3, Caitlin Bourke4, Balu Balan4,5, Aaron Jex4,5, Ivo Mueller4, Benoit Witkowski2, Dennis E Kyle1
+#### Anthony A. Ruberto<sup>1</sup>, Steven P. Maher<sup>1</sup>, Amélie Vantaux<sup>2</sup>, Chester J Joyner<sup>1,3</sup>, Caitlin Bourke<sup>4</sup>, Balu Balan<sup>4,5</sup>, Aaron Jex<sup>4,5</sup>, Ivo Mueller<sup>4</sup>, Benoit Witkowski<sup>2</sup>, Dennis E Kyle<sup>1</sup>
 #### 1 Center for Tropical and Emerging Tropical Diseases, University of Georgia, Athens, GA, USA
 #### 2 Malaria Molecular Epidemiology Unit, Institut Pasteur du Cambodge, Phnom Penh, Cambodia
 #### 3 Department of Infectious Diseases, College of Veterinary Medicine, University of Georgia, Athens, GA, USA
