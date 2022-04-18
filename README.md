@@ -8,15 +8,17 @@
 
 ## Content
 
-R Markdown files containing codes used to analyze *Plasmodium vivax* liver stages.
+R Markdown files containing codes used to analyze *Plasmodium vivax*-infected hepatocytes.
 
-To perform the analysis in its entirety, download and unzip "KallistoBUSoutputs".
+To perform the analysis in its entirety, download and unzip "Pv_Hep_scRNAseq_Shell_scripts_outputs" from Zenodo.
 
-Once complete you will find 6 folders that correspond to the each of the *Plasmodium vivax* liver stage 10X scRNA-seq runs.
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6463338.svg)](https://doi.org/10.5281/zenodo.6463338)
 
-Modify the path of these folders in the Pv_Hep_scRNAseq_additional_file_1.Rmd so that they can be read to R.
+Once complete you will find 6 folders that correspond to the each of the *Plasmodium vivax*-infected hepatocytes 10x Genomics scRNA-seq runs.
 
-When saving the RDS files be sure you have the correct output path specified.
+Modify the path of these folders in the Pv_Hep_scRNAseq_additional_file_1.Rmd so that they correspond to the directory that they are located on your system.
+
+When saving the RDS files for each analysis step, be sure you have the correct output path specified.
 
 ## Markdown file descriptions
 
@@ -35,7 +37,7 @@ manuscript for the parasite side.
 
 ## Outputs
 
-In the event you do not want to perform the analysis, the .rds files (outputs) from each step can be downloaded from Zenodo.
+In the event you do not want to perform the analysis, the .rds files (Pv_Hep_scRNAseq_R_scripts_outputs.zip) from each step can be downloaded from Zenodo.
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6463338.svg)](https://doi.org/10.5281/zenodo.6463338)
 
