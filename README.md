@@ -22,9 +22,9 @@ When saving the RDS files be sure you have the correct output path specified.
 
 **Pv_Hep_scRNAseq_additional_file_1.Rmd**: In this document, we distinguish between droplets containing cells from those containing ambient RNA / dead/ dying cells.
 
-**Pv_Hep_scRNAseq_additional_file_2.Rmd**: In this document, we first process the data to filter reads from human hepatocytes, leaving us with only *P.vivax* transcripts. Next, we perform cell and gene filtering for each of the samples. Last, we perform data reduction and clustering. 
+**Pv_Hep_scRNAseq_additional_file_2.Rmd**: In this document, we first process the data to filter reads from human hepatocytes, leaving us with only *P. vivax* transcripts. Next, we perform cell and gene filtering for each of the samples. Last, we perform data reduction and clustering. 
 
-**Pv_Hep_scRNAseq_additional_file_3.Rmd**: In this document, we merge the *P.vivax* data. We will first merge data derived from replicate 1 (day 5 and day 9) and replicate 2 (day 5 and day 9) separately. Second, we will merge all data (replicates 1 and 2). The rationale for assessing the data from replicate 1 and 2 separately gives us an opportunity to pick up any biases that may arise that are biological or technical in nature. Ways these biases would manifest include differences in clustering outputs or differential gene expression testing. 
+**Pv_Hep_scRNAseq_additional_file_3.Rmd**: In this document, we merge the *P. vivax* data. We will first merge data derived from replicate 1 (day 5 and day 9) and replicate 2 (day 5 and day 9) separately. Second, we will merge all data (replicates 1 and 2). The rationale for assessing the data from replicate 1 and 2 separately gives us an opportunity to pick up any biases that may arise that are biological or technical in nature. Ways these biases would manifest include differences in clustering outputs or differential gene expression testing. 
 
 **Pv_Hep_scRNAseq_additional_file_4.Rmd**: In this document, we perform the differential gene expression analysis used in the
 manuscript for the parasite side.
