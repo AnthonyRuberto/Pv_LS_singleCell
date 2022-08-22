@@ -33,7 +33,7 @@ manuscript for the parasite side.
 
 **Pv_Hep_scRNAseq_additional_file_5.Rmd**: In this document, we first process the data to filter reads from *P.vivax*, leaving us with only human transcripts. Next, we perform cell and gene filtering for each of the samples. Last, we perform data reduction and clustering.
 
-**Pv_Hep_scRNAseq_additional_file_6.Rmd**: In this document, we first merge the processed human hepatocyte scRNAseq data from each replicate. Next, we perform low dimensional reduction and clustering.
+**Pv_Hep_scRNAseq_additional_file_6.Rmd**: In this document, we first merge the processed human hepatocyte scRNAseq data from each replicate. Next, we perform low dimensional reduction and clustering. Finally, the cells are parsed and differential gene expression analyses are performed.
 
 ## Outputs
 
