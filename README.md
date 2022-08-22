@@ -6,6 +6,11 @@
 #### 4 Division of Population Health and Immunity, Walter and Eliza Hall Institute of Medical Research, Parkville, Victoria, Australia
 #### 5 Faculty of Veterinary and Agricultural Sciences, University of Melbourne, Parkville, Victoria, Australia
 
+![](https://www.ncbi.nlm.nih.gov/corehtml/pmc/pmcgifs/logo-fcimb.gif)
+
+[![DOI](https://zenodo.org/badge/DOI/10.3389/fcimb.2022.986314.svg)](https://doi.org/10.3389/fcimb.2022.986314)
+
+
 ## Content
 
 R Markdown files containing codes used to analyze *Plasmodium vivax*-infected hepatocytes.
