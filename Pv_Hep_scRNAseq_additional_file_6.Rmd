@@ -127,3 +127,115 @@ Save integrated data.
 ```{r save integrated RDS}
 saveRDS(hep.combined.sct, "outputs/hep.combined.sct.rds")
 ```
+
+```{r differential gene expression analyses human - subset cells}
+
+# Subset cells based on infection status
+
+## Replicate 1, day 5 post-infection, schizonts
+subset.hep.infected.day5.large.1 <- subset(hep.combined.sct, cells = Hep51a.seu.viv.f1.large$cellID)
+subset.hep.infected.day5.large.1$parasiteID<-"Schizont"
+
+## Replicate 2, day 5 post-infection, schizonts
+subset.hep.infected.day5.large.2 <- subset(hep.combined.sct, cells = Hep54a.seu.viv.f1.large$cellID)
+subset.hep.infected.day5.large.2$parasiteID<-"Schizont"
+
+## Replicate 1, day 5 post-infection, hypnozoites
+subset.hep.infected.day5.small.1 <- subset(hep.combined.sct, cells = Hep51a.seu.viv.f1.small$cellID)
+subset.hep.infected.day5.small.1$parasiteID<-"Hypnozoite"
+
+## Replicate 2, day 5 post-infection, hypnozoites
+subset.hep.infected.day5.small.2 <- subset(hep.combined.sct, cells = Hep54a.seu.viv.f1.small$cellID)
+subset.hep.infected.day5.small.2$parasiteID<-"Hypnozoite"
+
+## Replicate 1, day 9 post-infection, hypnozoites
+subset.hep.infected.day9.small.1 <- subset(hep.combined.sct, cells = Hep91a.seu.viv.f1.small$cellID)
+subset.hep.infected.day9.small.1$parasiteID<-"Hypnozoite"
+
+## Replicate 12, day 9 post-infection, hypnozoites
+subset.hep.infected.day9.small.2 <- subset(hep.combined.sct, cells = Hep94a.seu.viv.f1.small$cellID)
+subset.hep.infected.day9.small.2$parasiteID<-"Hypnozoite"
+
+```
+
+```{r differential gene expression analyses human - extract barcode IDs}
+# extract cell names (i.e. barcodes) for each of the conditions that will be compared
+
+hep.infected.cells.day5.schizonts<-c(rownames(subset.hep.infected.day5.large.1@meta.data),
+                                     rownames(subset.hep.infected.day5.large.2@meta.data))
+
+hep.infected.cells.day5.hypnozoites<-c(rownames(subset.hep.infected.day5.small.1@meta.data),
+                                     rownames(subset.hep.infected.day5.small.2@meta.data))
+
+hep.infected.cells.day5.rep1.schizonts<-c(rownames(subset.hep.infected.day5.large.1@meta.data))
+hep.infected.cells.day5.rep2.schizonts<-c(rownames(subset.hep.infected.day5.large.2@meta.data))
+
+hep.infected.cells.day5.rep1.hypnozoites<-c(rownames(subset.hep.infected.day5.small.1@meta.data))
+hep.infected.cells.day5.rep2.hypnozoites<-c(rownames(subset.hep.infected.day5.small.2@meta.data))
+
+
+hep.infected.cells.day9.hypnozoites<-c(rownames(subset.hep.infected.day9.small.1@meta.data),
+                                       rownames(subset.hep.infected.day9.small.2@meta.data))
+
+hep.infected.cells.day9.rep1.hypnozoites<-c(rownames(subset.hep.infected.day9.small.1@meta.data))
+hep.infected.cells.day9.rep2.hypnozoites<-c(rownames(subset.hep.infected.day9.small.2@meta.data))
+```
+
+```{r differential gene expression analyses human - DGE analyses 1}
+
+# DEG testing: 
+
+# Identify non-infected cells (Note: this will form Ident.2 for the comparisions of schizont-infected and hypnzoite-infected hepatocytes versus non-infected)
+
+hep.non.infected.naive.exposed.day59<-WhichCells(hep.combined.sct, cells =c(hep.infected.cells.day5.schizonts, hep.infected.cells.day5.hypnozoites, hep.infected.cells.day9.hypnozoites), invert = T)
+
+hep.non.infected.naive.exposed.day59.df <- subset(hep.combined.sct, cells = hep.non.infected.naive.exposed.day59)
+```
+
+```{r differential gene expression analyses human - DGE analyses 2}
+# related to Table S4A: Schizonts versus non-infected (naive and exposed, days 5 and 9):
+
+hep.combined.sct.de.markers.schizont.v.noninfected <- FindMarkers(hep.combined.sct, 
+                                                            ident.1 = hep.infected.cells.day5.schizonts,
+                                                            ident.2 = hep.non.infected.naive.exposed.day59,
+                                                            logfc.threshold = 0.0, 
+                                                            min.pct = 0.25, only.pos = F,
+                                                            max.cells.per.ident = 205,
+                                                            assay = "RNA")
+
+hep.combined.sct.de.markers.schizont.v.noninfected<-subset(hep.combined.sct.de.markers.schizont.v.noninfected, p_val_adj < 0.05)
+hep.combined.sct.de.markers.schizont.v.noninfected<-hep.combined.sct.de.markers.schizont.v.noninfected%>%arrange(desc(avg_log2FC))
+```
+
+```{r differential gene expression analyses human - DGE analyses 3}
+# related to Table S4B: Schizonts versus non-infected (naive and exposed, days 5 and 9): 
+
+hep.combined.sct.de.markers.hypnozoites.v.noninfected <- FindMarkers(hep.combined.sct, 
+                                                                  ident.1 = c(hep.infected.cells.day5.hypnozoites,
+                                                                              hep.infected.cells.day9.hypnozoites),
+                                                                  ident.2 = hep.non.infected.naive.exposed.day59,
+                                                                  logfc.threshold = 0.0, 
+                                                                  min.pct = 0.25, only.pos = F,
+                                                                  max.cells.per.ident = 924,
+                                                                  assay = "RNA")
+
+hep.combined.sct.de.markers.hypnozoites.v.noninfected <-subset(hep.combined.sct.de.markers.hypnozoites.v.noninfected , p_val_adj < 0.05)
+hep.combined.sct.de.markers.hypnozoites.v.noninfected <-hep.combined.sct.de.markers.hypnozoites.v.noninfected %>%arrange(desc(avg_log2FC))
+```
+
+```{r differential gene expression analyses human - DGE analyses 4}
+# related to Table S4E: Schizonts versus non-infected (naive and exposed, days 5 and 9):
+
+hep.non.infected.naive.exposed.day59.df <- SetIdent(hep.non.infected.naive.exposed.day59.df, value = "condition")
+
+hep.non.infected.naive.exposed.day59.de.genes <- FindMarkers(hep.non.infected.naive.exposed.day59.df, 
+                                                                  ident.1 = "Infected",
+                                                                  ident.2 = "Naive",
+                                                                  logfc.threshold = 0.25, 
+                                                                  min.pct = 0.25, only.pos = F,
+                                                                  max.cells.per.ident = 20731,
+                                                                  assay = "RNA")
+
+hep.non.infected.naive.exposed.day59.de.genes <-subset(hep.non.infected.naive.exposed.day59.de.genes , p_val_adj < 0.05)
+hep.non.infected.naive.exposed.day59.de.genes <-hep.non.infected.naive.exposed.day59.de.genes %>%arrange(desc(avg_log2FC))
+```
