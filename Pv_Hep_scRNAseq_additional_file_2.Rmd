@@ -69,8 +69,6 @@ Add metadata.
 ```{r add metadata}
 
 # Replicate 1 - Day 5
-Hep51a.seu.viv<- AddMetaData(Hep51a.seu.viv, metadata = cell_species.Hep51a$species,
-                             col.name = "species")
 Hep51a.seu.viv$day<-"Five"
 Hep51a.seu.viv$replicate<-"1"
 Hep51a.seu.viv$condition<-"Infected"
@@ -78,8 +76,6 @@ Hep51a.seu.viv$uniqueID<-"Day5_Rep1_Infected"
 Hep51a.seu.viv<-RenameCells(Hep51a.seu.viv, add.cell.id = "51inf")
 
 # Replicate 1 - Day 9
-Hep91a.seu.viv<- AddMetaData(Hep91a.seu.viv, metadata = cell_species.Hep91a$species,
-                             col.name = "species")
 Hep91a.seu.viv$day<-"Nine"
 Hep91a.seu.viv$replicate<-"1"
 Hep91a.seu.viv$condition<-"Infected"
@@ -87,8 +83,6 @@ Hep91a.seu.viv$uniqueID<-"Day9_Rep1_Infected"
 Hep91a.seu.viv<-RenameCells(Hep91a.seu.viv, add.cell.id = "91inf")
 
 # Replicate 2 - Day 5
-Hep54a.seu.viv<- AddMetaData(Hep54a.seu.viv, metadata = cell_species.Hep54a$species,
-                             col.name = "species")
 Hep54a.seu.viv$day<-"Five"
 Hep54a.seu.viv$replicate<-"2"
 Hep54a.seu.viv$condition<-"Infected"
@@ -96,8 +90,6 @@ Hep54a.seu.viv$uniqueID<-"Day5_Rep2_Infected"
 Hep54a.seu.viv<-RenameCells(Hep54a.seu.viv, add.cell.id = "52inf")
 
 # Relicate 2 - Day 9
-Hep94a.seu.viv<- AddMetaData(Hep94a.seu.viv, metadata = cell_species.Hep94a$species,
-                             col.name = "species")
 Hep94a.seu.viv$day<-"Nine"
 Hep94a.seu.viv$replicate<-"2"
 Hep94a.seu.viv$condition<-"Infected"
